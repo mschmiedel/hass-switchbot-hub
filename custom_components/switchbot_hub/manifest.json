@@ -1,0 +1,10 @@
+{
+  "codeowners": ["@iJCKode"],
+  "config_flow": true,
+  "documentation": "https://github.com/iJKCode/hass-switchbot-hub",
+  "domain": "switchbot_hub",
+  "iot_class": "local_polling",
+  "name": "SwitchBot Hub",
+  "requirements": [],
+  "version": "0.1.0"
+}

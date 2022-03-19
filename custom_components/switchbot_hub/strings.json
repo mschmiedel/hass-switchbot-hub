@@ -1,0 +1,20 @@
+{
+  "config": {
+    "error": {
+      "api_token": "The API token is invalid.",
+      "already_configured": "Api token is already configured"
+    },
+    "abort": {
+      "already_configured": "Api token is already configured"
+    },
+    "step": {
+      "user": {
+        "title": "Add SwitchBot Hub Api",
+        "description": "",
+        "data": {
+          "api_token": "Api Token"
+        }
+      }
+    }
+  }
+}
