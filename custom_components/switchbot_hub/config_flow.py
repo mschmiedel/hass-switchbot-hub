@@ -8,7 +8,7 @@ from homeassistant.data_entry_flow import FlowResult
 import homeassistant.helpers.config_validation as cv
 
 from .const import (
-    DOMAIN, CONF_TOKEN,
+    DOMAIN, CONF_TOKEN, CONF_SECRET
 )
 
 CONF_FRACTIONS_FILTER = "fractions_filter"
@@ -33,6 +33,7 @@ class SwitchBotHubConfigFlowHandler(ConfigFlow, domain=DOMAIN):
                 name = user_input.get(CONF_NAME)
                 data = {
                     CONF_TOKEN: user_input.get(CONF_TOKEN),
+                    CONF_SECRET: user_input.get(CONF_SECRET)
                 }
                 unique_id = user_input.get(CONF_TOKEN)  # TODO getter token (derive from hub id?)
 
@@ -48,6 +49,7 @@ class SwitchBotHubConfigFlowHandler(ConfigFlow, domain=DOMAIN):
             {
                 vol.Required(CONF_NAME, description=suggested(user_input.get(CONF_NAME, default_name))): cv.string,
                 vol.Required(CONF_TOKEN, description=suggested(user_input.get(CONF_TOKEN))): cv.string,
+                vol.Required(CONF_SECRET, description=suggested(user_input.get(CONF_SECRET))): cv.string
             }
         )
 

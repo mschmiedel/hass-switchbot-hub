@@ -12,7 +12,8 @@
         "title": "Add SwitchBot Hub Api",
         "description": "",
         "data": {
-          "api_token": "Api Token"
+          "api_token": "Api Token",
+          "secret": "Secret"
         }
       }
     }

@@ -7,7 +7,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DEVICE_LIST, DOMAIN, UPDATE_INTERVAL
-from .api.devices import SwitchBotMeterDevice, SwitchBotDevice
+from .api.devices import SwitchBotMeterDevice, SwitchBotDevice, SwitchBotMeterPlusDevice, SwitchBotMeterOutdoorDevice
 from .api.status import SwitchBotMeterStatus
 from .entity import SwitchBotDeviceCoordinatorEntity, SwitchBotDeviceDataUpdateCoordinator
 
@@ -22,7 +22,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
     entities = []
 
     for device in devices:
-        if isinstance(device, SwitchBotMeterDevice):
+        if isinstance(device, SwitchBotMeterDevice) or isinstance(device, SwitchBotMeterPlusDevice) or isinstance(device, SwitchBotMeterOutdoorDevice):
             coordinator = SwitchBotDeviceDataUpdateCoordinator(hass, update_interval=UPDATE_INTERVAL, device=device)
             await coordinator.async_config_entry_first_refresh()
             entities.append(SwitchBotTemperatureSensor(coordinator))

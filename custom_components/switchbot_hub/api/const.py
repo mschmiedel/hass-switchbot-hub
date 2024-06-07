@@ -5,10 +5,14 @@ JSON_DEVICE_LIST: Final = 'deviceList'
 
 TYPE_CURTAIN: Final = 'Curtain'
 TYPE_METER: Final = 'Meter'
+TYPE_METER_PLUS: Final = 'MeterPlus'
+TYPE_METER_OUTDOOR: Final = 'WoIOSensor'
 
 SUPPORTED_MODEL_TYPES = [
     TYPE_CURTAIN,
     TYPE_METER,
+    TYPE_METER_PLUS,
+    TYPE_METER_OUTDOOR,
 ]
 
 ATTR_COMMAND: Final = 'command'

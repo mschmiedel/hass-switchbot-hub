@@ -49,6 +49,7 @@ class SwitchBotDevice:
 
     async def async_status(self) -> any:
         status = await self._client.get(f'devices/{self.id}/status')
+        _LOGGER.debug('Status: %s', status)
         return self._status_type_cls(status[JSON_BODY])
 
     async def async_command(self, command: str, params: list[str] | None = None, customize: bool = False, **kwargs) -> any:
@@ -93,6 +94,20 @@ class SwitchBotCurtainDevice(SwitchBotDevice):
 
 class SwitchBotMeterDevice(SwitchBotDevice):
     _device_type_for = TYPE_METER
+    _status_type_cls = SwitchBotMeterStatus
+
+    def __init__(self, client: SwitchBotClient, info: dict[str, any]):
+        super().__init__(client, info)
+
+class SwitchBotMeterPlusDevice(SwitchBotDevice):
+    _device_type_for = TYPE_METER_PLUS
+    _status_type_cls = SwitchBotMeterStatus
+
+    def __init__(self, client: SwitchBotClient, info: dict[str, any]):
+        super().__init__(client, info)
+
+class SwitchBotMeterOutdoorDevice(SwitchBotDevice):
+    _device_type_for = TYPE_METER_OUTDOOR
     _status_type_cls = SwitchBotMeterStatus
 
     def __init__(self, client: SwitchBotClient, info: dict[str, any]):
