@@ -30,6 +30,8 @@ class SwitchBotDeviceDataUpdateCoordinator(DataUpdateCoordinator, Generic[Switch
 
     async def _async_update_data(self) -> SwitchBotStatus:
         self.status = await self.device.async_status()
+        _LOGGER.info(f"Device Status Name: 'v{self.status.device_name}'")
+        _LOGGER.info(f"Device Status Type: 'v{self.status.device_type}'")
         return self.status
 
 

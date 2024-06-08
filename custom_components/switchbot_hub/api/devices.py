@@ -5,7 +5,7 @@ from typing import ClassVar
 
 from .client import SwitchBotClient
 from .const import *
-from .status import SwitchBotStatus, SwitchBotMeterStatus, SwitchBotCurtainStatus
+from .status import SwitchBotStatus, SwitchBotMeterStatus, SwitchBotCurtainStatus, SwitchBotHub2Status
 from ..const import SUPPORTED_DEVICE_TYPES
 
 _LOGGER = logging.getLogger(__name__)
@@ -109,6 +109,13 @@ class SwitchBotMeterPlusDevice(SwitchBotDevice):
 class SwitchBotMeterOutdoorDevice(SwitchBotDevice):
     _device_type_for = TYPE_METER_OUTDOOR
     _status_type_cls = SwitchBotMeterStatus
+
+    def __init__(self, client: SwitchBotClient, info: dict[str, any]):
+        super().__init__(client, info)
+
+class SwitchBotHub2Device(SwitchBotDevice):
+    _device_type_for = TYPE_HUB_2
+    _status_type_cls = SwitchBotHub2Status
 
     def __init__(self, client: SwitchBotClient, info: dict[str, any]):
         super().__init__(client, info)

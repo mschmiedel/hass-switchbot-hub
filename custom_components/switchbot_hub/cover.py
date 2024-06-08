@@ -33,6 +33,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_e
 
 class SwitchBotCurtainCover(SwitchBotDeviceCoordinatorEntity[SwitchBotCurtainDevice, SwitchBotCurtainStatus], CoverEntity):
 
+    @property
+    def device_info(self):
+        return {
+            "identifiers": {(DOMAIN, self.device.id)},
+            "name": self.device.name,
+            "manufacturer": "SwitchBot",
+            "model": self.device.type
+        }
     def __init__(self, coordinator: SwitchBotDeviceDataUpdateCoordinator):
         super().__init__(coordinator, entity_id_format=ENTITY_ID_FORMAT)
         self._attr_device_class = DEVICE_CLASS_CURTAIN

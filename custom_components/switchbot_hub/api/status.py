@@ -20,9 +20,35 @@ class SwitchBotCurtainStatus(SwitchBotStatus):
         self.moving = self._status.get(STATUS_MOVING)
         self.slide_position = self._status.get(STATUS_SLIDE_POSITION)
 
+class SwitchBotBatteryStatus(SwitchBotStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)
+        self.battery = self._status.get(STATUS_BATTERY)
 
-class SwitchBotMeterStatus(SwitchBotStatus):
+class SwitchBotTemperatureStatus(SwitchBotStatus):
     def __init__(self, status: dict[str, any]):
         super().__init__(status)
         self.temperature = self._status.get(STATUS_TEMPERATURE)
+
+class SwitchBotHumidityStatus(SwitchBotStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)
         self.humidity = self._status.get(STATUS_HUMIDITY)
+
+class SwitchBotLightLevelStatus(SwitchBotStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)
+        self.lightLevel = self._status.get(STATUS_LIGHT_LEVEL)
+
+class SwitchBotVersionStatus(SwitchBotStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)
+        self.version = self._status.get(STATUS_VERSION)
+
+class SwitchBotMeterStatus(SwitchBotBatteryStatus, SwitchBotTemperatureStatus, SwitchBotHumidityStatus, SwitchBotVersionStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)
+
+class SwitchBotHub2Status(SwitchBotTemperatureStatus, SwitchBotHumidityStatus, SwitchBotLightLevelStatus, SwitchBotVersionStatus):
+    def __init__(self, status: dict[str, any]):
+        super().__init__(status)

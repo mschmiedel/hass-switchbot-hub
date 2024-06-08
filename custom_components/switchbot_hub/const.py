@@ -3,7 +3,7 @@
 from datetime import timedelta
 from typing import Final
 
-from .api.const import TYPE_CURTAIN, TYPE_METER, TYPE_METER_PLUS, TYPE_METER_OUTDOOR
+from .api.const import TYPE_CURTAIN, TYPE_METER, TYPE_METER_PLUS, TYPE_METER_OUTDOOR, TYPE_HUB_2
 
 DOMAIN = "switchbot_hub"
 
@@ -14,6 +14,7 @@ SUPPORTED_DEVICE_TYPES = {
     "Meter": TYPE_METER,
     "MeterPlus": TYPE_METER_PLUS,
     "WoIOSensor": TYPE_METER_OUTDOOR,
+    "Hub 2": TYPE_HUB_2
 }
 
 UPDATE_INTERVAL: Final = timedelta(minutes=2)

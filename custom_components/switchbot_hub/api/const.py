@@ -7,6 +7,7 @@ TYPE_CURTAIN: Final = 'Curtain'
 TYPE_METER: Final = 'Meter'
 TYPE_METER_PLUS: Final = 'MeterPlus'
 TYPE_METER_OUTDOOR: Final = 'WoIOSensor'
+TYPE_HUB_2: Final = 'Hub 2'
 
 SUPPORTED_MODEL_TYPES = [
     TYPE_CURTAIN,
@@ -33,3 +34,6 @@ STATUS_MOVING: Final = 'moving'
 STATUS_SLIDE_POSITION: Final = 'slidePosition'
 STATUS_TEMPERATURE: Final = 'temperature'
 STATUS_HUMIDITY: Final = 'humidity'
+STATUS_BATTERY: Final = 'battery'
+STATUS_VERSION: Final = 'version'
+STATUS_LIGHT_LEVEL: Final = 'lightLevel'
